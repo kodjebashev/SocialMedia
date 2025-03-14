@@ -1,5 +1,4 @@
 ﻿@using SocialMedia.Services.Friendship
-
 @model SocialMedia.Services.Profile.ProfileServiceModel
 
 @{
@@ -13,7 +12,7 @@
 </style>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: #1F3D60;">
         <div class="row">
             <div class="col-md-3">
                 @if (Model.AvatarUrl != null)
@@ -26,7 +25,7 @@
                 }
             </div>
             <div class="col-md-7">
-                <table class="table">
+                <table class="table" style="color: white;">
                     <tbody>
                         <tr></tr>
                         <tr>
@@ -51,8 +50,8 @@
                         <ul class="dropdown-menu">
                             <li>
                                 @Html.ActionLink("Unfriend", "Unfriend", "Friendships",
-                                 new { friendId = Model.User.Id },
-                                 new { @class = "nav-link btn btn-outline-primary" })
+                                         new { friendId = Model.User.Id },
+                                         new { @class = "nav-link btn btn-outline-primary" })
                             </li>
                         </ul>
                     </div>
@@ -62,7 +61,7 @@
     </div>
 </div>
 
-<hr class="container" style="height: 1px; border-width: 0; color: skyblue; background-color: skyblue">
+<hr class="container" style="height: 1px; border-width: 0; color: orangered; background-color: orangered">
 
 <div class="container">
     @if (Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
@@ -76,7 +75,8 @@
                    asp-action="Index"
                    asp-route-userId="@Model.User.Id"
                    class="nav-link btn btn-outline-primary">
-                    <img src="https://img.icons8.com/ultraviolet/40/000000/small-icons.png" />  Gallery</a>
+                    <img src="https://img.icons8.com/ultraviolet/40/000000/small-icons.png" />  Gallery
+                </a>
             </li>
             <li class="nav-item col-md-3">
                 <a asp-controller="Friendships"
@@ -133,8 +133,8 @@
             </li>
             <li class="nav-item col-md-3">
                 @Html.ActionLink("Reject", "Reject", "Friendships",
-                        new { requesterId = Model.User.Id },
-                        new { @class = "btn btn-outline-danger" })
+                         new { requesterId = Model.User.Id },
+                         new { @class = "btn btn-outline-danger" })
             </li>
             <li class="nav-item col-md-3"></li>
         </ul>
@@ -158,9 +158,9 @@
             <li class="nav-item col-md-3"></li>
             <li class="nav-item col-md-3">
                 @Html.ActionLink(
-                    "Add Friend", "SendRequest", "Friendships",
-                    new { addresseeId = Model.User.Id },
-                    new { @class = "btn btn-outline-primary", @style = "margin: 20px" })
+                         "Add Friend", "SendRequest", "Friendships",
+                         new { addresseeId = Model.User.Id },
+                         new { @class = "btn btn-outline-primary", @style = "margin: 20px" })
             </li>
             <li class="nav-item col-md-3"></li>
             <li class="nav-item col-md-3"></li>
@@ -168,18 +168,18 @@
     }
 </div>
 
-<hr class="container" style="height:1px;border-width:0;color:skyblue;background-color:skyblue">
+<hr class="container" style="height:1px;border-width:0;color:orangered;background-color:orangered">
 @if (Model.FriendshipStatus == ServiceModelFriendshipStatus.CurrentUser ||
 Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
 {
-    <div class="container posts">
+    <div class="container posts" style="background-color: #1F3D60; color: white; ">
         @if (Model.FriendshipStatus == ServiceModelFriendshipStatus.CurrentUser)
         {
             <!-- New Post Btn -->
             @Html.ActionLink(
                     "Add Post", "Create", "Posts",
-                    new { path = $"/Profile/Index/{ Model.User.Id }" },
-                    new { @class = "col-md-12 btn btn-outline-primary", @style = "margin: 20px" })
+                    new { path = $"/Profile/Index/{Model.User.Id}" },
+                    new { @class = "col-md-12 btn btn-outline-primary", @style = "margin: 20px; margin-left:-3px; background-color: white; color: #1F3D60" })
         }
 
         <!-- Posts -->
@@ -187,7 +187,7 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
         {
             foreach (var post in Model.Posts)
             {
-                <div class="media border p-3" style="margin-bottom: 20px;">
+                <div class="media  p-3" style="margin-bottom: 20px; border-color: lightskyblue; border-bottom: -5px;">
                     <img src="img/profile_pic.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body">
                         <!-- Post author and posted on-->
@@ -195,7 +195,7 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
                             <div class="col-md-10">
                                 @if (post.Group != null)
                                 {
-                                    <h5>@Model.User.UserName <small><i>Posted in <b>@post.Group.Title</b> on @post.DatePosted</i></small></h5>
+                                    <h5>@Model.User.UserName <small><i style="color:lightskyblue">Posted in <b>@post.Group.Title</b> on @post.DatePosted</i></small></h5>
 
                                 }
                                 else
@@ -213,23 +213,23 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
                                     <ul class="dropdown-menu">
                                         <li>
                                             @Html.ActionLink(
-                             "Edit", "Edit", "Posts",
-                             new
-                             {
-                                 id = post.PostId,
-                                 path = $"/Profile/Index/{ Model.User.Id }"
-                             },
-                             new { @class = "btn" })
+                                                     "Edit", "Edit", "Posts",
+                                                     new
+                                                     {
+                                                         id = post.PostId,
+                                                         path = $"/Profile/Index/{Model.User.Id}"
+                                                     },
+                                                     new { @class = "btn" })
                                         </li>
                                         <li>
                                             @Html.ActionLink(
-                             "Delete", "Delete", "Posts",
-                             new
-                             {
-                                 id = post.PostId,
-                                 path = $"/Profile/Index/{ Model.User.Id }"
-                             },
-                             new { @class = "btn" })
+                                                     "Delete", "Delete", "Posts",
+                                                     new
+                                                     {
+                                                         id = post.PostId,
+                                                         path = $"/Profile/Index/{Model.User.Id}"
+                                                     },
+                                                     new { @class = "btn" })
                                         </li>
                                     </ul>
                                 </div>
@@ -247,19 +247,23 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
                             @post.Content
                         </p>
 
-                        <hr style="height:1px;border-width:0;color:skyblue;background-color:skyblue">
+                        <hr style="height:1px;border-width:0;color:red;background-color:orangered">
 
                         <!-- New Comment Btn -->
                         @Html.ActionLink(
-                         "Add Comment", "Create", "Comments",
-                         new
-                         {
-                             postId = post.PostId,
-                             path = $"/Profile/Index/{ Model.User.Id }"
-                         },
-                         new { @class = "btn btn-outline-primary" })
+                                 "Add Comment", "Create", "Comments",
+                                 new
+                                 {
+                                     postId = post.PostId,
+                                     path = $"/Profile/Index/{Model.User.Id}"
+                                 },
+                                 new
+                                 {
+                                     @class = "btn btn-outline-primary",
+                                     @style = " background-color: white; color: #1F3D60; margin: -1rem 0 "
+                                 })
 
-                        <hr style="height:1px;border-width:0;color:skyblue;background-color:skyblue">
+                        <hr style="height:1px;border-width:0;color:orangered;background-color:orangered">
 
                         <!-- Comments -->
                         @if (post.Comments.Count > 0)
@@ -273,7 +277,7 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
                                             <div class="row">
                                                 <div class="col-md-10">
                                                     <!-- Author and posted date-->
-                                                    <h6>@comment.Author.UserName <small><i>Posted on @comment.DatePosted</i></small></h6>
+                                                    <h6>@comment.Author.UserName <small><i style="color:lightskyblue">Posted on @comment.DatePosted</i></small></h6>
 
                                                     <!-- Tagged users -->
                                                     @if (comment.TaggedFriends != null)
@@ -293,23 +297,23 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 @Html.ActionLink(
-                                                 "Edit", "Edit", "Comments",
-                                                 new
-                                                 {
-                                                     id = comment.CommentId,
-                                                     path = $"/Profile/Index/{ Model.User.Id}"
-                                                 },
-                                                 new { @class = "btn" })
+                                                                         "Edit", "Edit", "Comments",
+                                                                         new
+                                                                         {
+                                                                             id = comment.CommentId,
+                                                                             path = $"/Profile/Index/{Model.User.Id}"
+                                                                         },
+                                                                         new { @class = "btn" })
                                                             </li>
                                                             <li>
                                                                 @Html.ActionLink(
-                                                 "Delete", "Delete", "Comments",
-                                                 new
-                                                 {
-                                                     id = comment.CommentId,
-                                                     path = $"/Profile/Index/{ Model.User.Id}"
-                                                 },
-                                                 new { @class = "btn" })
+                                                                         "Delete", "Delete", "Comments",
+                                                                         new
+                                                                         {
+                                                                             id = comment.CommentId,
+                                                                             path = $"/Profile/Index/{Model.User.Id}"
+                                                                         },
+                                                                         new { @class = "btn" })
                                                             </li>
                                                         </ul>
                                                     }
