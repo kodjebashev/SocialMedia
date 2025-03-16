@@ -17,6 +17,7 @@
             this.FriendshipRequester = new HashSet<Friendship>();
             this.Groups = new HashSet<UserInGroup>();
             this.Images = new HashSet<Image>();
+           
         }
 
         public string FirstName { get; set; }
@@ -31,6 +32,19 @@
         public Gender Gender { get; set; }
         [DataType(DataType.MultilineText)]
         public string Bio { get; set; }
+
+
+
+        public string Grade { get; set; }
+        public string Speciality { get; set; }
+        public string Tutor { get; set; }
+        public string MidGrades { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+
+
+
         public string Locale { get; set; } = "en-GB";
         public ICollection<Post> Posts { get; set; }
         public ICollection<Comment> Comments { get; set; }
@@ -51,4 +65,5 @@
         male = 0,
         female = 1
     }
+
 }

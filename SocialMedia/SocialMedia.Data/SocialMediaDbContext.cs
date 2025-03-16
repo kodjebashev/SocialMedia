@@ -140,8 +140,11 @@
                 entity.HasMany(i => i.Images)
                     .WithOne(u => u.Uploader)
                     .HasForeignKey(uId => uId.UploaderId);
+
             });
 
+
+          
             modelBuilder.Entity<Avatar>(entity =>
             {
                 entity.HasOne(i => i.Uploader)
