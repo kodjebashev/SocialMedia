@@ -38,31 +38,44 @@
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Телефон")]
             public string PhoneNumber { get; set; }
 
-            [Display(Name = "First name")]
+            [Display(Name = "Име")]
             public string FirstName { get; set; }
 
-            [Display(Name = "Last name")]
+            [Display(Name = "Фамилия")]
             public string LastName { get; set; }
 
             //TODO: Date picker
-            [Display(Name = "Date of birth")]
+            [Display(Name = "Дата на раждане")]
             [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
             public DateTime? DOB { get; set; }
 
-            [Display(Name = "City")]
+            [Display(Name = "Град")]
             public string City { get; set; }
 
-            [Display(Name = "Country")]
+            [Display(Name = "Държава")]
             public string Country { get; set; }
 
-            [Display(Name = "Gender")]
+            [Display(Name = "Пол")]
             public Gender Gender { get; set; }
 
             [Display(Name = "Bio")]
             public string Bio { get; set; }
+            [Display(Name = "Клас")]
+            public string Grade { get; set; }
+            [Display(Name = "специалност")]
+            public string Speciality { get; set; }
+            [Display(Name = "Класен пъководител")]
+            public string Tutor { get; set; }
+            [Display(Name = "Успех")]
+            public string MidGrades { get; set; }
+            [Display(Name = "Мейл")]
+            public string Email { get; set; }
+            [Display(Name = "Адрес")]
+            public string Address { get; set; }
+
         }
 
         private async Task LoadAsync(User user)
@@ -79,7 +92,15 @@
                 DOB = user.DOB,
                 Bio = user.Bio,
                 City = user.City,
-                Country = user.Country
+                Country = user.Country,
+                Address = user.Address,
+                Email = user.Email,
+                Grade = user.Grade,
+                MidGrades = user.MidGrades,
+                PhoneNumber = user.PhoneNumber,
+                Speciality = user.Speciality,
+                Tutor = user.Tutor
+                
             };
         }
 

@@ -32,9 +32,6 @@
         public Gender Gender { get; set; }
         [DataType(DataType.MultilineText)]
         public string Bio { get; set; }
-
-
-
         public string Grade { get; set; }
         public string Speciality { get; set; }
         public string Tutor { get; set; }
