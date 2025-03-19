@@ -61,11 +61,11 @@
             [Display(Name = "Пол")]
             public Gender Gender { get; set; }
 
-            [Display(Name = "Bio")]
+            [Display(Name = "Био")]
             public string Bio { get; set; }
             [Display(Name = "Клас")]
             public string Grade { get; set; }
-            [Display(Name = "специалност")]
+            [Display(Name = "Специалност")]
             public string Speciality { get; set; }
             [Display(Name = "Класен пъководител")]
             public string Tutor { get; set; }
@@ -146,6 +146,128 @@
                 }
 
             }
+
+
+
+
+
+
+            //Update details
+            if (Input.Grade != user.Grade)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.Grade = this.Input.Grade;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your grade has not been updated";
+                    return RedirectToPage();
+                }
+
+            }  //Update details
+            if (Input.Speciality != user.Speciality)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.Speciality = this.Input.Speciality;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your spec has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+            //Update details
+            if (Input.Tutor != user.Tutor)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.Tutor = this.Input.Tutor;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your tutor name has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+            if (Input.MidGrades != user.MidGrades)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.MidGrades = this.Input.MidGrades;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your midgrade has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+
+            if (Input.PhoneNumber != user.PhoneNumber)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.PhoneNumber = this.Input.PhoneNumber;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your phn has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+            if (Input.Email != user.Email)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.Email = this.Input.Email;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your email has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+            if (Input.Address != user.Address)
+            {
+                try
+                {
+                    var updateUser = await this._context.Users.FirstOrDefaultAsync(i => i.Id == user.Id);
+                    updateUser.Address = this.Input.Address;
+                    await this._context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    StatusMessage = "Your sdrs has not been updated";
+                    return RedirectToPage();
+                }
+
+            }
+
+
+
+
+
+
+
+
             if (Input.LastName != user.LastName)
             {
                 try
