@@ -1,5 +1,6 @@
 ﻿namespace SocialMedia.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Diagnostics;
     using Microsoft.AspNetCore.Http.Extensions;
     using Microsoft.AspNetCore.Mvc;
@@ -40,5 +41,8 @@
         {
             this._logger.LogInformation(url);
         }
+
+
+       
     }
 }

@@ -251,7 +251,16 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script>
+        const slides = document.querySelectorAll('.slideshow .slide');
+        let current = 0, delay = 5000;
+        setInterval(() => {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, delay);
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
