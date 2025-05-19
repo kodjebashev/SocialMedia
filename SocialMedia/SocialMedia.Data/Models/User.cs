@@ -17,7 +17,6 @@
             this.FriendshipRequester = new HashSet<Friendship>();
             this.Groups = new HashSet<UserInGroup>();
             this.Images = new HashSet<Image>();
-           
         }
 
         public string FirstName { get; set; }
@@ -36,11 +35,9 @@
         public string Speciality { get; set; }
         public string Tutor { get; set; }
         public string MidGrades { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+        public new string Phone { get; set; }
+        public new string Email { get; set; }
         public string Address { get; set; }
-
-
 
         public string Locale { get; set; } = "en-GB";
         public ICollection<Post> Posts { get; set; }

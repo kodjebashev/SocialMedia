@@ -4,7 +4,7 @@
     ViewData["Title"] = "Delete";
 }
 
-<h5>Are you sure you want to delete this post?</h5>
+<h5>Сигурни ли сте че искате да изтриете тази публикация?</h5>
 <hr />
 
 <div class="media border p-3" style="margin-bottom: 20px;">
@@ -15,12 +15,12 @@
             <div class="col-md-10">
                 @if (Model.Group != null)
                 {
-                    <h5>@Model.Author.UserName <small><i>Posted in <b>@Model.Group.Title</b> on @Model.DatePosted</i></small></h5>
+                    <h5>@Model.Author.UserName <small><i>Качено в <b>@Model.Group.Title</b> on @Model.DatePosted</i></small></h5>
 
                 }
                 else
                 {
-                    <h5>@Model.Author.UserName <small><i>Posted on @Model.DatePosted</i></small></h5>
+                    <h5>@Model.Author.UserName <small><i>Качено на @Model.DatePosted</i></small></h5>
                 }
             </div>
         </div>
@@ -43,5 +43,5 @@
 <form asp-action="Delete">
     <input type="hidden" asp-for="@Model.PostId" />
     <input type="submit" value="Delete" class="btn btn-danger" /> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Обратно в листа</a>
 </form>

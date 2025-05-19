@@ -3,12 +3,14 @@ namespace SocialMedia.Web
     using Infrastructure;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using SocialMedia.Data;
+    using SocialMedia.Data.Models;
     using SocialMedia.Services.JSON;
 
     public class Startup
@@ -28,7 +30,12 @@ namespace SocialMedia.Web
                 .AddDbContext<SocialMediaDbContext>(opt => opt
                     .UseSqlServer(Configuration.GetConnectionString("SocialMediaDb")));
 
-            services.AddIdentity();
+            // Fix for CS0246 and CS1929:
+            // Ensure the correct DbContext is used and the IdentityBuilder is properly configured.
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<SocialMediaDbContext>()
+                .AddUserManager<UserManager<User>>()
+                .AddDefaultTokenProviders();
 
             services.AddConventionalServices();
             // Add Generic service

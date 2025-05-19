@@ -6,20 +6,20 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        <a class="nav-link text-light" asp-controller="Profile" asp-action="Index">Profile</a>
-        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Settings</a>
+        <a class="nav-link text-light" asp-controller="Profile" asp-action="Index">Профил</a>
+        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Настройки</a>
 
         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-light">Logout</button>
+            <button type="submit" class="nav-link btn btn-link text-light">Излез</button>
         </form>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Вход</a>
         </li>
     }
 </ul>

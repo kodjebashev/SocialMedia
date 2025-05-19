@@ -4,20 +4,18 @@
     ViewData["Title"] = "Users";
 }
 
-<h1>Friends recommendations</h1>
+<h1>МОже да познавате:</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                Username
+                Потребителско име
             </th>
             <th>
-                Full name
+                Цяло име
             </th>
-            <th>
-                Nationality
-            </th>
+           
         </tr>
     </thead>
     <tbody>
@@ -30,9 +28,7 @@
             <td>
                 @Html.DisplayFor(modelItem => user.FullName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => user.Country)
-            </td>
+            
             <td>
                 @Html.ActionLink(
                   "Add Friend", "SendRequest", "Friendships",

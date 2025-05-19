@@ -108,7 +108,7 @@
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasIndex(e => e.Email)
-                    .IsUnique(true);
+                    .IsUnique(false);
 
                 entity.HasIndex(x => x.Locale)
                     .IsUnique(false);

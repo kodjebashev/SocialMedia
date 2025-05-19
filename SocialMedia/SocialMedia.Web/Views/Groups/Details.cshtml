@@ -92,7 +92,7 @@ else
                     <!-- Post author and posted on-->
                     <div class="row">
                         <div class="col-md-10">
-                            <h5>@post.Author.UserName <small><i>Posted on @post.DatePosted</i></small></h5>
+                            <h5>@post.Author.UserName <small><i>Качено на @post.DatePosted</i></small></h5>
                         </div>
                         @if (Model.CurrentUserId == post.Author.Id)
                         {
@@ -164,7 +164,7 @@ else
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <!-- Author and posted date-->
-                                                <h6>@comment.Author.UserName <small><i>Posted on @comment.DatePosted</i></small></h6>
+                                                <h6>@comment.Author.UserName <small><i>Качено на @comment.DatePosted</i></small></h6>
 
                                                 <!-- Tagged users -->
                                                 @if (comment.TaggedFriends != null)

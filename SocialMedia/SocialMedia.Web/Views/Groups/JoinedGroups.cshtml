@@ -4,16 +4,16 @@
     ViewData["Title"] = "MyGroups";
 }
 
-<h1>My Groups</h1>
+<h1>Моите групи</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Създай нова</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Title
+                Заглавие
             </th>
         </tr>
     </thead>
@@ -30,8 +30,8 @@
                 @if (group.AdminId == TempData["currentUserId"] as string)
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@group.GroupId">Edit</a> |
-                        <a asp-action="Delete" asp-route-id="@group.GroupId">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@group.GroupId">Промени</a> |
+                        <a asp-action="Delete" asp-route-id="@group.GroupId">Изтрий</a>
                     </td>
                 }
             </tr>

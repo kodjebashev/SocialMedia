@@ -42,27 +42,27 @@
             private string username;
 
             [Required]
-            [Display(Name = "Username")]
+            [Display(Name = "Потребителско име")]
             public string Username
             {
                 get { return username.Trim(' '); }
                 set { username = value.Trim(' '); }
             }
 
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+          
+            [Display(Name = "Имейл")]
+            
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "{0} трябва да е с дължина поне {2} и максимум {1} знака.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Парола")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Потвърди парола")]
+            [Compare("Password", ErrorMessage = "Паролата и паролата за потвърждение не съвпадат.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -78,11 +78,11 @@
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Username.TrimEnd(), Email = Input.Email };
+                var user = new User { UserName = Input.Username.TrimEnd(), Email = Input.Email.ToString() };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("Потребителят е създал нов акаунт с парола.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
