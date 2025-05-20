@@ -68,7 +68,8 @@
     {
         <ul class="nav" style="margin: 0, auto;">
             <li class="nav-item col-md-3">
-                <button class="nav-link btn btn-outline-primary"><img src="https://img.icons8.com/ultraviolet/40/000000/about.png" />  Относно </button>
+
+                <a class="nav-link btn btn-outline-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img src="https://img.icons8.com/ultraviolet/40/000000/about.png" />Относно</a>
             </li>
             <li class="nav-item col-md-3">
                 <a asp-controller="Gallery"
@@ -95,7 +96,7 @@
     {
         <ul class="nav" style="margin: 0, auto;">
             <li class="nav-item col-md-3">
-                <button class="nav-link btn btn-outline-primary" href="#"><img src="https://img.icons8.com/ultraviolet/40/000000/about.png" />  Относно </button>
+                <a class="nav-link btn btn-outline-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img src="https://img.icons8.com/ultraviolet/40/000000/about.png" />Относно</a>
             </li>
             <li class="nav-item col-md-3">
                 <a asp-controller="Gallery"
@@ -188,7 +189,7 @@ Model.FriendshipStatus == ServiceModelFriendshipStatus.Accepted)
             foreach (var post in Model.Posts)
             {
                 <div class="media  p-3" style="margin-bottom: 20px; border-color: lightskyblue; border-bottom: -5px;">
-                    <img src="img/profile_pic.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                    <img src="@Model.AvatarUrl" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body">
                         <!-- Post author and posted on-->
                         <div class="row">
