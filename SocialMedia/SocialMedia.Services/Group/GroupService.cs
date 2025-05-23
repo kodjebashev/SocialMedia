@@ -73,12 +73,6 @@
             await this._data.SaveChangesAsync();
         }
 
-        /// <summary>
-        /// Creates new UserInGroup entity and save it to the db
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="currentUserId"></param>
-        /// <returns></returns>
         public async Task JoinGroupAsync(int groupId, string currentUserId)
         {
             if (!await IsCurrentUserMember(currentUserId, groupId))
@@ -94,12 +88,6 @@
             }
         }
 
-        /// <summary>
-        /// Find and get UserInGroup entity and remove it from the db
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="currentUserId"></param>
-        /// <returns></returns>
         public async Task LeaveGroupAsync(int groupId, string currentUserId)
         {
             var userInGroup = await this._data.UsersInGroups
