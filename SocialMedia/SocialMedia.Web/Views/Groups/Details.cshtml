@@ -60,7 +60,7 @@
 <!-- non members -->
 @if (!Model.IsCurrentUserMember)
 {
-    <button class="btn btn-outline-primary">
+    <button class="btn btn-primary">
         @Html.ActionLink("Join", "Join", "Groups",
        new { id = Model.GroupId })
     </button>
@@ -69,7 +69,7 @@ else
 {
     <!-- New Post Btn -->
     @Html.ActionLink(
-            "Add Post", "Create", "Posts",
+            "Публикувай", "Create", "Posts",
             new 
             {
                 groupId = Model.GroupId,
@@ -98,13 +98,13 @@ else
                         {
                             <!-- Dropdown settings -->
                             <div class="col-md-2 dropdown">
-                                <button class="btn btn-outline-primary" data-toggle="dropdown" role="menu" aria-expanded="false" style="cursor:pointer">
-                                    <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/000000/settings.png" />
-                                </button>
+                                <!--   <button class="btn btn-outline-primary" data-toggle="dropdown" role="menu" aria-expanded="false" style="cursor:pointer">
+                                   <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/000000/settings.png" />
+                                </button>-->
                                 <ul class="dropdown-menu">
                                     <li>
                                         @Html.ActionLink(
-                                       "Edit", "Edit", "Posts",
+                                       "Промени", "Edit", "Posts",
                                        new
                                        {
                                            id = post.PostId,
@@ -114,7 +114,7 @@ else
                                     </li>
                                     <li>
                                         @Html.ActionLink(
-                                       "Delete", "Delete", "Posts",
+                                       "Изтрий", "Delete", "Posts",
                                        new
                                        {
                                            id = post.PostId,
@@ -142,7 +142,7 @@ else
 
                     <!-- New Comment Btn -->
                     @Html.ActionLink(
-                   "Add Comment", "Create", "Comments",
+                   "Коментирай", "Create", "Comments",
                    new
                    {
                        postId = post.PostId,
@@ -158,8 +158,8 @@ else
                         foreach (var comment in post.Comments)
                         {
                             <div class="container mt-3">
-                                <div class="media border p-3">
-                                    <img src="~/img/profile_pic_2.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                              <div class="media border p-3">
+                                    <!--     <img src="~/img/profile_pic_2.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">-->
                                     <div class="media-body">
                                         <div class="row">
                                             <div class="col-md-10">
@@ -184,7 +184,7 @@ else
                                                     <ul class="dropdown-menu">
                                                         <li>
                                                             @Html.ActionLink(
-                                                           "Edit", "Edit", "Comments",
+                                                           "Промени", "Edit", "Comments",
                                                            new
                                                            {
                                                                id = comment.CommentId,
@@ -194,7 +194,7 @@ else
                                                         </li>
                                                         <li>
                                                             @Html.ActionLink(
-                                                           "Delete", "Delete", "Comments",
+                                                           "Изтрий", "Delete", "Comments",
                                                            new
                                                            {
                                                                id = comment.CommentId,

@@ -2,8 +2,9 @@
 
 @{
     ViewData["Title"] = "MyGroups";
+   
 }
-
+<link rel="stylesheet" href="~/css/Groups.css" />
 <h1>Моите групи</h1>
 
 <p>
@@ -17,21 +18,21 @@
             </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
         @foreach (var group in Model)
         {
-            <tr>
+            <tr class="nav-item">
                 <td>
                     @Html.DisplayFor(modelItem => group.Title)
                 </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", "Groups", new { id = group.GroupId })
+                <td class="nav-item">
+                    @Html.ActionLink("Детайли", "Details", "Groups", new { id = group.GroupId }, new { @class = "btn btn-default " })
                 </td>
                 @if (group.AdminId == TempData["currentUserId"] as string)
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@group.GroupId">Промени</a> |
-                        <a asp-action="Delete" asp-route-id="@group.GroupId">Изтрий</a>
+                        <a class="btn btn-default " asp-action="Edit" asp-route-id="@group.GroupId">Промени</a> |
+                        <a class="btn btn-default " asp-action="Delete" asp-route-id="@group.GroupId">Изтрий</a>
                     </td>
                 }
             </tr>
